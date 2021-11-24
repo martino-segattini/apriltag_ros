@@ -7,6 +7,7 @@
 #include <apriltag_msgs/msg/april_tag_detection.hpp>
 #include <apriltag_msgs/msg/april_tag_detection_array.hpp>
 #include <tf2_msgs/msg/tf_message.hpp>
+#include <std_msgs/msg/int32_multi_array.hpp>
 
 #include <image_transport/camera_subscriber.hpp>
 
@@ -44,6 +45,7 @@ private:
     const image_transport::CameraSubscriber sub_cam;
     const rclcpp::Publisher<tf2_msgs::msg::TFMessage>::SharedPtr pub_tf;
     const rclcpp::Publisher<apriltag_msgs::msg::AprilTagDetectionArray>::SharedPtr pub_detections;
+    const rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr pub_id_detections;
 
     void onCamera(const sensor_msgs::msg::Image::ConstSharedPtr& msg_img, const sensor_msgs::msg::CameraInfo::ConstSharedPtr& msg_ci);
 
